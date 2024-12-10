@@ -23,6 +23,7 @@ export const userDetail =createSlice({
     users: [],
     loading :false ,
     error : null,
+    },
     extraReducers :{
         [createUser.pending ] :(state)=>{
             state.loading=true;
@@ -30,15 +31,15 @@ export const userDetail =createSlice({
         },
         [createUser.fulfilled] :(state ,action )=>{
             state.loading=false;
-            state.users.push(action.payload)
+            state.users.push(action.payload);
 
         },
         [createUser.rejected] :(state ,action )=>{
             state.loading=false;
-            state.users.push(action.payload)
+            state.error=action.payload.message;
 
         }
     }
    },
-});
+);
 export default  userDetail.reducer

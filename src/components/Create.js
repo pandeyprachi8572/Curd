@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
+import { createUser } from '../features/userDetailSlice';
 const  Create = () => { 
     const [users , setUsers] =useState({});
     const dispatch =useDispatch();
@@ -7,8 +8,10 @@ const  Create = () => {
         setUsers ({...users ,[e.target.value]: e.target.value})
         console.log(users);
 }
-   const handleSubmit = () =>{
-    dispatch()
+   const handleSubmit = (e) =>{
+    e.preventDefault();
+    dispatch(createUser(users))
+    console.log(users)
 
 } 
  return (
