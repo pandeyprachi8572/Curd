@@ -1,11 +1,17 @@
 import './App.css';
 import Create from './components/Create';
 import Navbar from './components/Navbar';
+import   {BrowserRouter , Route ,Routes } from "react-router-dom";
 function App() {
 return (
 <div className="App">
+      <BrowserRouter>
       <Navbar/>
-      <Create/>
+      <Routes>
+      <Route exact path='/' element ={<Create/>}/>
+      </Routes>
+      </BrowserRouter>
+      
 </div>
 );
 }
