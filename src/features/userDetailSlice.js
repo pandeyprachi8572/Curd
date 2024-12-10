@@ -1,5 +1,5 @@
-import { createSlice ,createAsyncThunk } from "@reduxjs/toolkit" ;
- 
+import { createSlice ,createAsyncThunk } from "@reduxjs/toolkit" ; 
+import { retry } from "@reduxjs/toolkit/query";
 //create action  
 export const  createUser = createAsyncThunk("createUser" ,async (data ,rejectWithValue) =>{
 const response =  await fetch ("https://6756c5fdc0a427baf94a53b8.mockapi.io/Curd" ,{
@@ -15,7 +15,16 @@ return result
 } catch (error) {
     rejectWithValue(error)
 }
-
+});
+//read action 
+export const showUser = createAsyncThunk("showUser" , async({rejectWithValue})=> {
+const response =await fetch("https://6756c5fdc0a427baf94a53b8.mockapi.io/Curd", ) ;
+try {
+    const result = await response.json();
+    return result
+}   catch (error) {
+    return rejectWithValue(error);   
+}
 })
 export const userDetail =createSlice({
     name :"userDetails",
@@ -38,8 +47,21 @@ export const userDetail =createSlice({
             state.loading=false;
             state.error=action.payload.message;
 
-        }
+        },
+        [showUser.pending ] :(state)=>{
+            state.loading=true;
+
+        },
+        [showUser.fulfilled] :(state ,action )=>{
+            state.loading=false;
+            state.users = action.payload;
+
+        },
+        [showUser.rejected] :(state ,action )=>{
+            state.loading=false;
+            state.error=action.payload;
+
     }
    },
-);
+});
 export default  userDetail.reducer
