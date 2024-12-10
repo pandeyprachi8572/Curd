@@ -1,14 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit" ;
-
-
-
-
-export const userDetails =createSlice({
+export const userDetail =createSlice({
     name :"userDetails",
     initialState: {
-        users: [],
-        loading :false ,
-        console.error();
-        
-    }
-})
+    users: [],
+    loading :false ,
+    error : null,
+   },
+});
+export default  userDetail.reducer
