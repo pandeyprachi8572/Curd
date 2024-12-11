@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 const Navbar = () => {
   const allusers = useSelector((state) => state.app.users);
+  const [searchData , setSearchData] = useState("");
 
   return (
     <div>
@@ -29,6 +30,8 @@ const Navbar = () => {
               type="search"
               placeholder="Search"
               aria-label="Search"
+              onChange={()=>setSearchData(e.target.value)}
+            
             />
           </div>
         </div>
