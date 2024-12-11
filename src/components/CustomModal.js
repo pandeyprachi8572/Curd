@@ -1,14 +1,37 @@
+// import React from "react";
+// import "./CustomModal.css";
+// import { useSelector } from "react-redux";
+// const CustomModal = ({id , setShowPopup}) => {
+// const allusers = useSelector((state)=>state.app.users);
+// const singleUser =allusers.filter((ele)=> ele.id === id );
+// console.log("singleuser", singleUser);
+// return (
+//     <div className="modalBackground">
+//       <div className="ModalContainer">
+//         <button onClick = {()=>setShowPopup}>Close</button>
+//         <h2>{singleUser[0].name}</h2>
+//         <h3>{singleUser[0].email}</h3>
+//         <h4>{singleUser[0].age}</h4>
+//         <p>{singleUser[0].gender}</p>
+//       </div>
+//     </div>
+//   );
+// };
+// export default CustomModal;
 import React from "react";
-import "./CustomModal.css";
 import { useSelector } from "react-redux";
-const CustomModal = ({id , setShowPopup}) => {
-const allusers = useSelector((state)=>state.app.users);
-const singleUser =allusers.filter((ele)=> ele.id === id );
-console.log("singleuser", singleUser);
-return (
+import "./CustomModal.css";
+
+const CustomModal = ({ id, setShowPopup }) => {
+  const allusers = useSelector((state) => state.app.users);
+
+  const singleUser = allusers.filter((ele) => ele.id === id);
+  console.log("singleuser", singleUser);
+
+  return (
     <div className="modalBackground">
-      <div className="ModalContainer">
-        <button onClick = {()=>setShowPopup}>Close</button>
+      <div className="modalContainer">
+        <button onClick={() => setShowPopup(false)}>Close</button>
         <h2>{singleUser[0].name}</h2>
         <h3>{singleUser[0].email}</h3>
         <h4>{singleUser[0].age}</h4>
@@ -17,4 +40,5 @@ return (
     </div>
   );
 };
+
 export default CustomModal;

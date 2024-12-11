@@ -103,7 +103,7 @@ const Update = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    dispatch(updateUser(updateData));
+    dispatch(updateUser(updateData)); 
     navigate("/read");
   };
 
