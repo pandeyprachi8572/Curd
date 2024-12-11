@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, useParams } from 'react-router-dom'
+import { updateUser } from '../features/userDetailSlice';
 const Update = () => {
 const {id} = useParams();
 const dispatch = useDispatch();
