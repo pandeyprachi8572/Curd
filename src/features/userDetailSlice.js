@@ -164,7 +164,6 @@ export const createUser = createAsyncThunk(
     }
   }
 );
-
 // Read action
 export const showUser = createAsyncThunk(
   "showUser",
@@ -178,7 +177,6 @@ export const showUser = createAsyncThunk(
     }
   }
 );
-
 // Delete action
 export const deleteUser = createAsyncThunk(
   "deleteUser",
@@ -195,7 +193,6 @@ export const deleteUser = createAsyncThunk(
     }
   }
 );
-
 // Update action
 export const updateUser = createAsyncThunk(
   "updateUser",
@@ -218,7 +215,6 @@ export const updateUser = createAsyncThunk(
     }
   }
 );
-
 export const userDetail = createSlice({
   name: "userDetails",
   initialState: {
@@ -275,7 +271,6 @@ export const userDetail = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-
       // UPDATE USER
       .addCase(updateUser.pending, (state) => {
         state.loading = true;

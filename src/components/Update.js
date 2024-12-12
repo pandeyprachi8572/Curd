@@ -83,11 +83,8 @@ const Update = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const [updateData, setUpdateData] = useState();
-
   const { users, loading } = useSelector((state) => state.app);
-
   useEffect(() => {
     if (id) {
       const singleUser = users.filter((ele) => ele.id === id);
